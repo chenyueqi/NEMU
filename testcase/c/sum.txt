@@ -1,0 +1,27 @@
+
+sum：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048074 <main>:
+ 8048074:	55                   	push   %ebp
+ 8048075:	89 e5                	mov    %esp,%ebp
+ 8048077:	83 ec 10             	sub    $0x10,%esp
+ 804807a:	c7 45 fc 01 00 00 00 	movl   $0x1,-0x4(%ebp)
+ 8048081:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp)
+ 8048088:	eb 0a                	jmp    8048094 <main+0x20>
+ 804808a:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 804808d:	01 45 f8             	add    %eax,-0x8(%ebp)
+ 8048090:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 8048094:	83 7d fc 64          	cmpl   $0x64,-0x4(%ebp)
+ 8048098:	7e f0                	jle    804808a <main+0x16>
+ 804809a:	81 7d f8 ba 13 00 00 	cmpl   $0x13ba,-0x8(%ebp)
+ 80480a1:	74 06                	je     80480a9 <main+0x35>
+ 80480a3:	b8 01 00 00 00       	mov    $0x1,%eax
+ 80480a8:	82                   	(bad)  
+ 80480a9:	b8 00 00 00 00       	mov    $0x0,%eax
+ 80480ae:	82                   	(bad)  
+ 80480af:	b8 00 00 00 00       	mov    $0x0,%eax
+ 80480b4:	c9                   	leave  
+ 80480b5:	c3                   	ret    

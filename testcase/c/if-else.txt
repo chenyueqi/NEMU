@@ -1,0 +1,60 @@
+
+if-else：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <if_else>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	83 ec 10             	sub    $0x10,%esp
+ 804809a:	81 7d 08 f4 01 00 00 	cmpl   $0x1f4,0x8(%ebp)
+ 80480a1:	7e 09                	jle    80480ac <if_else+0x18>
+ 80480a3:	c7 45 fc 96 00 00 00 	movl   $0x96,-0x4(%ebp)
+ 80480aa:	eb 37                	jmp    80480e3 <if_else+0x4f>
+ 80480ac:	81 7d 08 2c 01 00 00 	cmpl   $0x12c,0x8(%ebp)
+ 80480b3:	7e 09                	jle    80480be <if_else+0x2a>
+ 80480b5:	c7 45 fc 64 00 00 00 	movl   $0x64,-0x4(%ebp)
+ 80480bc:	eb 25                	jmp    80480e3 <if_else+0x4f>
+ 80480be:	83 7d 08 64          	cmpl   $0x64,0x8(%ebp)
+ 80480c2:	7e 09                	jle    80480cd <if_else+0x39>
+ 80480c4:	c7 45 fc 4b 00 00 00 	movl   $0x4b,-0x4(%ebp)
+ 80480cb:	eb 16                	jmp    80480e3 <if_else+0x4f>
+ 80480cd:	83 7d 08 32          	cmpl   $0x32,0x8(%ebp)
+ 80480d1:	7e 09                	jle    80480dc <if_else+0x48>
+ 80480d3:	c7 45 fc 32 00 00 00 	movl   $0x32,-0x4(%ebp)
+ 80480da:	eb 07                	jmp    80480e3 <if_else+0x4f>
+ 80480dc:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 80480e3:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480e6:	c9                   	leave  
+ 80480e7:	c3                   	ret    
+
+080480e8 <main>:
+ 80480e8:	55                   	push   %ebp
+ 80480e9:	89 e5                	mov    %esp,%ebp
+ 80480eb:	83 ec 14             	sub    $0x14,%esp
+ 80480ee:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp)
+ 80480f5:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 80480fc:	eb 32                	jmp    8048130 <main+0x48>
+ 80480fe:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048101:	8b 04 85 a0 91 04 08 	mov    0x80491a0(,%eax,4),%eax
+ 8048108:	89 04 24             	mov    %eax,(%esp)
+ 804810b:	e8 84 ff ff ff       	call   8048094 <if_else>
+ 8048110:	89 c2                	mov    %eax,%edx
+ 8048112:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 8048115:	8d 48 01             	lea    0x1(%eax),%ecx
+ 8048118:	89 4d f8             	mov    %ecx,-0x8(%ebp)
+ 804811b:	8b 04 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%eax
+ 8048122:	39 c2                	cmp    %eax,%edx
+ 8048124:	74 06                	je     804812c <main+0x44>
+ 8048126:	b8 01 00 00 00       	mov    $0x1,%eax
+ 804812b:	82                   	(bad)  
+ 804812c:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 8048130:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048133:	83 f8 0d             	cmp    $0xd,%eax
+ 8048136:	76 c6                	jbe    80480fe <main+0x16>
+ 8048138:	b8 00 00 00 00       	mov    $0x0,%eax
+ 804813d:	82                   	(bad)  
+ 804813e:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048143:	c9                   	leave  
+ 8048144:	c3                   	ret    

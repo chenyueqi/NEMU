@@ -1,0 +1,50 @@
+
+wanshu：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <main>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	83 ec 10             	sub    $0x10,%esp
+ 804809a:	c7 45 f0 00 00 00 00 	movl   $0x0,-0x10(%ebp)
+ 80480a1:	c7 45 fc 01 00 00 00 	movl   $0x1,-0x4(%ebp)
+ 80480a8:	eb 54                	jmp    80480fe <main+0x6a>
+ 80480aa:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp)
+ 80480b1:	c7 45 f4 01 00 00 00 	movl   $0x1,-0xc(%ebp)
+ 80480b8:	eb 17                	jmp    80480d1 <main+0x3d>
+ 80480ba:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480bd:	99                   	cltd   
+ 80480be:	f7 7d f4             	idivl  -0xc(%ebp)
+ 80480c1:	89 d0                	mov    %edx,%eax
+ 80480c3:	85 c0                	test   %eax,%eax
+ 80480c5:	75 06                	jne    80480cd <main+0x39>
+ 80480c7:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 80480ca:	01 45 f8             	add    %eax,-0x8(%ebp)
+ 80480cd:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)
+ 80480d1:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 80480d4:	3b 45 fc             	cmp    -0x4(%ebp),%eax
+ 80480d7:	7c e1                	jl     80480ba <main+0x26>
+ 80480d9:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 80480dc:	3b 45 fc             	cmp    -0x4(%ebp),%eax
+ 80480df:	75 19                	jne    80480fa <main+0x66>
+ 80480e1:	8b 45 f0             	mov    -0x10(%ebp),%eax
+ 80480e4:	8b 04 85 58 91 04 08 	mov    0x8049158(,%eax,4),%eax
+ 80480eb:	3b 45 fc             	cmp    -0x4(%ebp),%eax
+ 80480ee:	74 06                	je     80480f6 <main+0x62>
+ 80480f0:	b8 01 00 00 00       	mov    $0x1,%eax
+ 80480f5:	82                   	(bad)  
+ 80480f6:	83 45 f0 01          	addl   $0x1,-0x10(%ebp)
+ 80480fa:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 80480fe:	81 7d fc e7 03 00 00 	cmpl   $0x3e7,-0x4(%ebp)
+ 8048105:	7e a3                	jle    80480aa <main+0x16>
+ 8048107:	83 7d f0 03          	cmpl   $0x3,-0x10(%ebp)
+ 804810b:	74 06                	je     8048113 <main+0x7f>
+ 804810d:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048112:	82                   	(bad)  
+ 8048113:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048118:	82                   	(bad)  
+ 8048119:	b8 00 00 00 00       	mov    $0x0,%eax
+ 804811e:	c9                   	leave  
+ 804811f:	c3                   	ret    

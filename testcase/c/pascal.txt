@@ -1,0 +1,85 @@
+
+pascal：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <main>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	83 ec 10             	sub    $0x10,%esp
+ 804809a:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 80480a1:	eb 37                	jmp    80480da <main+0x46>
+ 80480a3:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480a6:	c1 e0 07             	shl    $0x7,%eax
+ 80480a9:	05 80 90 04 08       	add    $0x8049080,%eax
+ 80480ae:	c7 00 01 00 00 00    	movl   $0x1,(%eax)
+ 80480b4:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480b7:	c1 e0 07             	shl    $0x7,%eax
+ 80480ba:	05 80 90 04 08       	add    $0x8049080,%eax
+ 80480bf:	8b 08                	mov    (%eax),%ecx
+ 80480c1:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480c4:	c1 e0 02             	shl    $0x2,%eax
+ 80480c7:	89 c2                	mov    %eax,%edx
+ 80480c9:	c1 e2 05             	shl    $0x5,%edx
+ 80480cc:	29 c2                	sub    %eax,%edx
+ 80480ce:	8d 82 80 90 04 08    	lea    0x8049080(%edx),%eax
+ 80480d4:	89 08                	mov    %ecx,(%eax)
+ 80480d6:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 80480da:	83 7d fc 1e          	cmpl   $0x1e,-0x4(%ebp)
+ 80480de:	7e c3                	jle    80480a3 <main+0xf>
+ 80480e0:	c7 45 fc 02 00 00 00 	movl   $0x2,-0x4(%ebp)
+ 80480e7:	eb 66                	jmp    804814f <main+0xbb>
+ 80480e9:	c7 45 f8 01 00 00 00 	movl   $0x1,-0x8(%ebp)
+ 80480f0:	eb 51                	jmp    8048143 <main+0xaf>
+ 80480f2:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480f5:	8d 50 ff             	lea    -0x1(%eax),%edx
+ 80480f8:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 80480fb:	8d 48 ff             	lea    -0x1(%eax),%ecx
+ 80480fe:	89 d0                	mov    %edx,%eax
+ 8048100:	c1 e0 05             	shl    $0x5,%eax
+ 8048103:	29 d0                	sub    %edx,%eax
+ 8048105:	01 c8                	add    %ecx,%eax
+ 8048107:	8b 0c 85 80 90 04 08 	mov    0x8049080(,%eax,4),%ecx
+ 804810e:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048111:	8d 50 ff             	lea    -0x1(%eax),%edx
+ 8048114:	89 d0                	mov    %edx,%eax
+ 8048116:	c1 e0 05             	shl    $0x5,%eax
+ 8048119:	29 d0                	sub    %edx,%eax
+ 804811b:	8b 55 f8             	mov    -0x8(%ebp),%edx
+ 804811e:	01 d0                	add    %edx,%eax
+ 8048120:	8b 04 85 80 90 04 08 	mov    0x8049080(,%eax,4),%eax
+ 8048127:	01 c1                	add    %eax,%ecx
+ 8048129:	8b 55 fc             	mov    -0x4(%ebp),%edx
+ 804812c:	89 d0                	mov    %edx,%eax
+ 804812e:	c1 e0 05             	shl    $0x5,%eax
+ 8048131:	29 d0                	sub    %edx,%eax
+ 8048133:	8b 55 f8             	mov    -0x8(%ebp),%edx
+ 8048136:	01 d0                	add    %edx,%eax
+ 8048138:	89 0c 85 80 90 04 08 	mov    %ecx,0x8049080(,%eax,4)
+ 804813f:	83 45 f8 01          	addl   $0x1,-0x8(%ebp)
+ 8048143:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 8048146:	3b 45 fc             	cmp    -0x4(%ebp),%eax
+ 8048149:	7c a7                	jl     80480f2 <main+0x5e>
+ 804814b:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 804814f:	83 7d fc 1e          	cmpl   $0x1e,-0x4(%ebp)
+ 8048153:	7e 94                	jle    80480e9 <main+0x55>
+ 8048155:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp)
+ 804815c:	eb 27                	jmp    8048185 <main+0xf1>
+ 804815e:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 8048161:	05 a2 03 00 00       	add    $0x3a2,%eax
+ 8048166:	8b 14 85 80 90 04 08 	mov    0x8049080(,%eax,4),%edx
+ 804816d:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 8048170:	8b 04 85 00 90 04 08 	mov    0x8049000(,%eax,4),%eax
+ 8048177:	39 c2                	cmp    %eax,%edx
+ 8048179:	74 06                	je     8048181 <main+0xed>
+ 804817b:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048180:	82                   	(bad)  
+ 8048181:	83 45 f8 01          	addl   $0x1,-0x8(%ebp)
+ 8048185:	83 7d f8 1e          	cmpl   $0x1e,-0x8(%ebp)
+ 8048189:	7e d3                	jle    804815e <main+0xca>
+ 804818b:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048190:	82                   	(bad)  
+ 8048191:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048196:	c9                   	leave  
+ 8048197:	c3                   	ret    

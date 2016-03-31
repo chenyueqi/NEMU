@@ -1,0 +1,54 @@
+
+add：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <add>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	83 ec 10             	sub    $0x10,%esp
+ 804809a:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 804809d:	8b 55 08             	mov    0x8(%ebp),%edx
+ 80480a0:	01 d0                	add    %edx,%eax
+ 80480a2:	89 45 fc             	mov    %eax,-0x4(%ebp)
+ 80480a5:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480a8:	c9                   	leave  
+ 80480a9:	c3                   	ret    
+
+080480aa <main>:
+ 80480aa:	55                   	push   %ebp
+ 80480ab:	89 e5                	mov    %esp,%ebp
+ 80480ad:	83 ec 18             	sub    $0x18,%esp
+ 80480b0:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
+ 80480b7:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 80480be:	eb 55                	jmp    8048115 <main+0x6b>
+ 80480c0:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp)
+ 80480c7:	eb 40                	jmp    8048109 <main+0x5f>
+ 80480c9:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 80480cc:	8b 14 85 80 91 04 08 	mov    0x8049180(,%eax,4),%edx
+ 80480d3:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480d6:	8b 04 85 80 91 04 08 	mov    0x8049180(,%eax,4),%eax
+ 80480dd:	89 54 24 04          	mov    %edx,0x4(%esp)
+ 80480e1:	89 04 24             	mov    %eax,(%esp)
+ 80480e4:	e8 ab ff ff ff       	call   8048094 <add>
+ 80480e9:	89 c2                	mov    %eax,%edx
+ 80480eb:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 80480ee:	8d 48 01             	lea    0x1(%eax),%ecx
+ 80480f1:	89 4d f4             	mov    %ecx,-0xc(%ebp)
+ 80480f4:	8b 04 85 a0 91 04 08 	mov    0x80491a0(,%eax,4),%eax
+ 80480fb:	39 c2                	cmp    %eax,%edx
+ 80480fd:	74 06                	je     8048105 <main+0x5b>
+ 80480ff:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048104:	82                   	(bad)  
+ 8048105:	83 45 f8 01          	addl   $0x1,-0x8(%ebp)
+ 8048109:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 804810c:	83 f8 07             	cmp    $0x7,%eax
+ 804810f:	76 b8                	jbe    80480c9 <main+0x1f>
+ 8048111:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 8048115:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048118:	83 f8 07             	cmp    $0x7,%eax
+ 804811b:	76 a3                	jbe    80480c0 <main+0x16>
+ 804811d:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048122:	c9                   	leave  
+ 8048123:	c3                   	ret    

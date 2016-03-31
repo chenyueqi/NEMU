@@ -1,0 +1,59 @@
+
+switch：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <switch_case>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	83 ec 10             	sub    $0x10,%esp
+ 804809a:	83 7d 08 0c          	cmpl   $0xc,0x8(%ebp)
+ 804809e:	77 45                	ja     80480e5 <switch_case+0x51>
+ 80480a0:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80480a3:	c1 e0 02             	shl    $0x2,%eax
+ 80480a6:	05 3c 81 04 08       	add    $0x804813c,%eax
+ 80480ab:	8b 00                	mov    (%eax),%eax
+ 80480ad:	ff e0                	jmp    *%eax
+ 80480af:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 80480b6:	eb 35                	jmp    80480ed <switch_case+0x59>
+ 80480b8:	c7 45 fc 02 00 00 00 	movl   $0x2,-0x4(%ebp)
+ 80480bf:	eb 2c                	jmp    80480ed <switch_case+0x59>
+ 80480c1:	c7 45 fc 05 00 00 00 	movl   $0x5,-0x4(%ebp)
+ 80480c8:	eb 23                	jmp    80480ed <switch_case+0x59>
+ 80480ca:	c7 45 fc 08 00 00 00 	movl   $0x8,-0x4(%ebp)
+ 80480d1:	eb 1a                	jmp    80480ed <switch_case+0x59>
+ 80480d3:	c7 45 fc 0a 00 00 00 	movl   $0xa,-0x4(%ebp)
+ 80480da:	eb 11                	jmp    80480ed <switch_case+0x59>
+ 80480dc:	c7 45 fc 0f 00 00 00 	movl   $0xf,-0x4(%ebp)
+ 80480e3:	eb 08                	jmp    80480ed <switch_case+0x59>
+ 80480e5:	c7 45 fc ff ff ff ff 	movl   $0xffffffff,-0x4(%ebp)
+ 80480ec:	90                   	nop
+ 80480ed:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480f0:	c9                   	leave  
+ 80480f1:	c3                   	ret    
+
+080480f2 <main>:
+ 80480f2:	55                   	push   %ebp
+ 80480f3:	89 e5                	mov    %esp,%ebp
+ 80480f5:	83 ec 14             	sub    $0x14,%esp
+ 80480f8:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 80480ff:	eb 26                	jmp    8048127 <main+0x35>
+ 8048101:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048104:	83 e8 01             	sub    $0x1,%eax
+ 8048107:	89 04 24             	mov    %eax,(%esp)
+ 804810a:	e8 85 ff ff ff       	call   8048094 <switch_case>
+ 804810f:	8b 55 fc             	mov    -0x4(%ebp),%edx
+ 8048112:	8b 14 95 e0 91 04 08 	mov    0x80491e0(,%edx,4),%edx
+ 8048119:	39 d0                	cmp    %edx,%eax
+ 804811b:	74 06                	je     8048123 <main+0x31>
+ 804811d:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048122:	82                   	(bad)  
+ 8048123:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 8048127:	83 7d fc 0e          	cmpl   $0xe,-0x4(%ebp)
+ 804812b:	7e d4                	jle    8048101 <main+0xf>
+ 804812d:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048132:	82                   	(bad)  
+ 8048133:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048138:	c9                   	leave  
+ 8048139:	c3                   	ret    

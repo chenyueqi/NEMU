@@ -1,0 +1,159 @@
+
+quick-sort：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <partition>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	83 ec 10             	sub    $0x10,%esp
+ 804809a:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 804809d:	8d 14 85 00 00 00 00 	lea    0x0(,%eax,4),%edx
+ 80480a4:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80480a7:	01 d0                	add    %edx,%eax
+ 80480a9:	8b 00                	mov    (%eax),%eax
+ 80480ab:	89 45 f4             	mov    %eax,-0xc(%ebp)
+ 80480ae:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80480b1:	89 45 fc             	mov    %eax,-0x4(%ebp)
+ 80480b4:	8b 45 10             	mov    0x10(%ebp),%eax
+ 80480b7:	89 45 f8             	mov    %eax,-0x8(%ebp)
+ 80480ba:	e9 8c 00 00 00       	jmp    804814b <partition+0xb7>
+ 80480bf:	eb 04                	jmp    80480c5 <partition+0x31>
+ 80480c1:	83 6d f8 01          	subl   $0x1,-0x8(%ebp)
+ 80480c5:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480c8:	3b 45 f8             	cmp    -0x8(%ebp),%eax
+ 80480cb:	7d 16                	jge    80480e3 <partition+0x4f>
+ 80480cd:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 80480d0:	8d 14 85 00 00 00 00 	lea    0x0(,%eax,4),%edx
+ 80480d7:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80480da:	01 d0                	add    %edx,%eax
+ 80480dc:	8b 00                	mov    (%eax),%eax
+ 80480de:	3b 45 f4             	cmp    -0xc(%ebp),%eax
+ 80480e1:	7f de                	jg     80480c1 <partition+0x2d>
+ 80480e3:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480e6:	8d 14 85 00 00 00 00 	lea    0x0(,%eax,4),%edx
+ 80480ed:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80480f0:	01 c2                	add    %eax,%edx
+ 80480f2:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 80480f5:	8d 0c 85 00 00 00 00 	lea    0x0(,%eax,4),%ecx
+ 80480fc:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80480ff:	01 c8                	add    %ecx,%eax
+ 8048101:	8b 00                	mov    (%eax),%eax
+ 8048103:	89 02                	mov    %eax,(%edx)
+ 8048105:	eb 04                	jmp    804810b <partition+0x77>
+ 8048107:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 804810b:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 804810e:	3b 45 f8             	cmp    -0x8(%ebp),%eax
+ 8048111:	7d 16                	jge    8048129 <partition+0x95>
+ 8048113:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048116:	8d 14 85 00 00 00 00 	lea    0x0(,%eax,4),%edx
+ 804811d:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048120:	01 d0                	add    %edx,%eax
+ 8048122:	8b 00                	mov    (%eax),%eax
+ 8048124:	3b 45 f4             	cmp    -0xc(%ebp),%eax
+ 8048127:	7e de                	jle    8048107 <partition+0x73>
+ 8048129:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 804812c:	8d 14 85 00 00 00 00 	lea    0x0(,%eax,4),%edx
+ 8048133:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048136:	01 c2                	add    %eax,%edx
+ 8048138:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 804813b:	8d 0c 85 00 00 00 00 	lea    0x0(,%eax,4),%ecx
+ 8048142:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048145:	01 c8                	add    %ecx,%eax
+ 8048147:	8b 00                	mov    (%eax),%eax
+ 8048149:	89 02                	mov    %eax,(%edx)
+ 804814b:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 804814e:	3b 45 f8             	cmp    -0x8(%ebp),%eax
+ 8048151:	0f 8c 68 ff ff ff    	jl     80480bf <partition+0x2b>
+ 8048157:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 804815a:	8d 14 85 00 00 00 00 	lea    0x0(,%eax,4),%edx
+ 8048161:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048164:	01 c2                	add    %eax,%edx
+ 8048166:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 8048169:	89 02                	mov    %eax,(%edx)
+ 804816b:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 804816e:	c9                   	leave  
+ 804816f:	c3                   	ret    
+
+08048170 <quick_sort>:
+ 8048170:	55                   	push   %ebp
+ 8048171:	89 e5                	mov    %esp,%ebp
+ 8048173:	83 ec 28             	sub    $0x28,%esp
+ 8048176:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 8048179:	3b 45 10             	cmp    0x10(%ebp),%eax
+ 804817c:	7c 02                	jl     8048180 <quick_sort+0x10>
+ 804817e:	eb 54                	jmp    80481d4 <quick_sort+0x64>
+ 8048180:	8b 45 10             	mov    0x10(%ebp),%eax
+ 8048183:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 8048187:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 804818a:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 804818e:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048191:	89 04 24             	mov    %eax,(%esp)
+ 8048194:	e8 fb fe ff ff       	call   8048094 <partition>
+ 8048199:	89 45 f4             	mov    %eax,-0xc(%ebp)
+ 804819c:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 804819f:	83 e8 01             	sub    $0x1,%eax
+ 80481a2:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 80481a6:	8b 45 0c             	mov    0xc(%ebp),%eax
+ 80481a9:	89 44 24 04          	mov    %eax,0x4(%esp)
+ 80481ad:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80481b0:	89 04 24             	mov    %eax,(%esp)
+ 80481b3:	e8 b8 ff ff ff       	call   8048170 <quick_sort>
+ 80481b8:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 80481bb:	8d 50 01             	lea    0x1(%eax),%edx
+ 80481be:	8b 45 10             	mov    0x10(%ebp),%eax
+ 80481c1:	89 44 24 08          	mov    %eax,0x8(%esp)
+ 80481c5:	89 54 24 04          	mov    %edx,0x4(%esp)
+ 80481c9:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80481cc:	89 04 24             	mov    %eax,(%esp)
+ 80481cf:	e8 9c ff ff ff       	call   8048170 <quick_sort>
+ 80481d4:	c9                   	leave  
+ 80481d5:	c3                   	ret    
+
+080481d6 <main>:
+ 80481d6:	55                   	push   %ebp
+ 80481d7:	89 e5                	mov    %esp,%ebp
+ 80481d9:	83 e4 f0             	and    $0xfffffff0,%esp
+ 80481dc:	83 ec 20             	sub    $0x20,%esp
+ 80481df:	c7 44 24 08 63 00 00 	movl   $0x63,0x8(%esp)
+ 80481e6:	00 
+ 80481e7:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%esp)
+ 80481ee:	00 
+ 80481ef:	c7 04 24 00 93 04 08 	movl   $0x8049300,(%esp)
+ 80481f6:	e8 75 ff ff ff       	call   8048170 <quick_sort>
+ 80481fb:	c7 44 24 1c 00 00 00 	movl   $0x0,0x1c(%esp)
+ 8048202:	00 
+ 8048203:	eb 1c                	jmp    8048221 <main+0x4b>
+ 8048205:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 8048209:	8b 04 85 00 93 04 08 	mov    0x8049300(,%eax,4),%eax
+ 8048210:	3b 44 24 1c          	cmp    0x1c(%esp),%eax
+ 8048214:	74 06                	je     804821c <main+0x46>
+ 8048216:	b8 01 00 00 00       	mov    $0x1,%eax
+ 804821b:	82                   	(bad)  
+ 804821c:	83 44 24 1c 01       	addl   $0x1,0x1c(%esp)
+ 8048221:	83 7c 24 1c 63       	cmpl   $0x63,0x1c(%esp)
+ 8048226:	7e dd                	jle    8048205 <main+0x2f>
+ 8048228:	c7 44 24 08 63 00 00 	movl   $0x63,0x8(%esp)
+ 804822f:	00 
+ 8048230:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%esp)
+ 8048237:	00 
+ 8048238:	c7 04 24 00 93 04 08 	movl   $0x8049300,(%esp)
+ 804823f:	e8 2c ff ff ff       	call   8048170 <quick_sort>
+ 8048244:	c7 44 24 1c 00 00 00 	movl   $0x0,0x1c(%esp)
+ 804824b:	00 
+ 804824c:	eb 1c                	jmp    804826a <main+0x94>
+ 804824e:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 8048252:	8b 04 85 00 93 04 08 	mov    0x8049300(,%eax,4),%eax
+ 8048259:	3b 44 24 1c          	cmp    0x1c(%esp),%eax
+ 804825d:	74 06                	je     8048265 <main+0x8f>
+ 804825f:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048264:	82                   	(bad)  
+ 8048265:	83 44 24 1c 01       	addl   $0x1,0x1c(%esp)
+ 804826a:	83 7c 24 1c 63       	cmpl   $0x63,0x1c(%esp)
+ 804826f:	7e dd                	jle    804824e <main+0x78>
+ 8048271:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048276:	82                   	(bad)  
+ 8048277:	b8 00 00 00 00       	mov    $0x0,%eax
+ 804827c:	c9                   	leave  
+ 804827d:	c3                   	ret    

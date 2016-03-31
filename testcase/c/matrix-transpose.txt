@@ -1,0 +1,49 @@
+
+matrix-transpose：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <main>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	83 ec 10             	sub    $0x10,%esp
+ 804809a:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 80480a1:	eb 69                	jmp    804810c <main+0x78>
+ 80480a3:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp)
+ 80480aa:	eb 56                	jmp    8048102 <main+0x6e>
+ 80480ac:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480af:	6b d0 61             	imul   $0x61,%eax,%edx
+ 80480b2:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 80480b5:	01 d0                	add    %edx,%eax
+ 80480b7:	8b 04 85 60 91 04 08 	mov    0x8049160(,%eax,4),%eax
+ 80480be:	8b 55 f8             	mov    -0x8(%ebp),%edx
+ 80480c1:	6b ca 59             	imul   $0x59,%edx,%ecx
+ 80480c4:	8b 55 fc             	mov    -0x4(%ebp),%edx
+ 80480c7:	01 ca                	add    %ecx,%edx
+ 80480c9:	89 04 95 60 9f 05 08 	mov    %eax,0x8059f60(,%edx,4)
+ 80480d0:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 80480d3:	6b d0 59             	imul   $0x59,%eax,%edx
+ 80480d6:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480d9:	01 d0                	add    %edx,%eax
+ 80480db:	8b 14 85 60 9f 05 08 	mov    0x8059f60(,%eax,4),%edx
+ 80480e2:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 80480e5:	6b c8 59             	imul   $0x59,%eax,%ecx
+ 80480e8:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480eb:	01 c8                	add    %ecx,%eax
+ 80480ed:	8b 04 85 60 18 05 08 	mov    0x8051860(,%eax,4),%eax
+ 80480f4:	39 c2                	cmp    %eax,%edx
+ 80480f6:	74 06                	je     80480fe <main+0x6a>
+ 80480f8:	b8 01 00 00 00       	mov    $0x1,%eax
+ 80480fd:	82                   	(bad)  
+ 80480fe:	83 45 f8 01          	addl   $0x1,-0x8(%ebp)
+ 8048102:	83 7d f8 60          	cmpl   $0x60,-0x8(%ebp)
+ 8048106:	7e a4                	jle    80480ac <main+0x18>
+ 8048108:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 804810c:	83 7d fc 58          	cmpl   $0x58,-0x4(%ebp)
+ 8048110:	7e 91                	jle    80480a3 <main+0xf>
+ 8048112:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048117:	82                   	(bad)  
+ 8048118:	b8 00 00 00 00       	mov    $0x0,%eax
+ 804811d:	c9                   	leave  
+ 804811e:	c3                   	ret    

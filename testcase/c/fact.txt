@@ -1,0 +1,51 @@
+
+fact：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <fact>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	83 ec 18             	sub    $0x18,%esp
+ 804809a:	83 7d 08 00          	cmpl   $0x0,0x8(%ebp)
+ 804809e:	74 06                	je     80480a6 <fact+0x12>
+ 80480a0:	83 7d 08 01          	cmpl   $0x1,0x8(%ebp)
+ 80480a4:	75 07                	jne    80480ad <fact+0x19>
+ 80480a6:	b8 01 00 00 00       	mov    $0x1,%eax
+ 80480ab:	eb 12                	jmp    80480bf <fact+0x2b>
+ 80480ad:	8b 45 08             	mov    0x8(%ebp),%eax
+ 80480b0:	83 e8 01             	sub    $0x1,%eax
+ 80480b3:	89 04 24             	mov    %eax,(%esp)
+ 80480b6:	e8 d9 ff ff ff       	call   8048094 <fact>
+ 80480bb:	0f af 45 08          	imul   0x8(%ebp),%eax
+ 80480bf:	c9                   	leave  
+ 80480c0:	c3                   	ret    
+
+080480c1 <main>:
+ 80480c1:	55                   	push   %ebp
+ 80480c2:	89 e5                	mov    %esp,%ebp
+ 80480c4:	83 e4 f0             	and    $0xfffffff0,%esp
+ 80480c7:	83 ec 20             	sub    $0x20,%esp
+ 80480ca:	c7 44 24 1c 00 00 00 	movl   $0x0,0x1c(%esp)
+ 80480d1:	00 
+ 80480d2:	eb 3c                	jmp    8048110 <main+0x4f>
+ 80480d4:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 80480d8:	89 04 24             	mov    %eax,(%esp)
+ 80480db:	e8 b4 ff ff ff       	call   8048094 <fact>
+ 80480e0:	8b 54 24 1c          	mov    0x1c(%esp),%edx
+ 80480e4:	89 04 95 c0 91 04 08 	mov    %eax,0x80491c0(,%edx,4)
+ 80480eb:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 80480ef:	8b 14 85 c0 91 04 08 	mov    0x80491c0(,%eax,4),%edx
+ 80480f6:	8b 44 24 1c          	mov    0x1c(%esp),%eax
+ 80480fa:	8b 04 85 80 91 04 08 	mov    0x8049180(,%eax,4),%eax
+ 8048101:	39 c2                	cmp    %eax,%edx
+ 8048103:	74 06                	je     804810b <main+0x4a>
+ 8048105:	b8 01 00 00 00       	mov    $0x1,%eax
+ 804810a:	82                   	(bad)  
+ 804810b:	83 44 24 1c 01       	addl   $0x1,0x1c(%esp)
+ 8048110:	83 7c 24 1c 0c       	cmpl   $0xc,0x1c(%esp)
+ 8048115:	7e bd                	jle    80480d4 <main+0x13>
+ 8048117:	b8 00 00 00 00       	mov    $0x0,%eax
+ 804811c:	c9                   	leave  
+ 804811d:	c3                   	ret    

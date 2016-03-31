@@ -1,0 +1,22 @@
+
+test：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048074 <main>:
+ 8048074:	55                   	push   %ebp
+ 8048075:	89 e5                	mov    %esp,%ebp
+ 8048077:	83 ec 10             	sub    $0x10,%esp
+ 804807a:	c7 45 f8 61 62 63 64 	movl   $0x64636261,-0x8(%ebp)
+ 8048081:	c7 45 fc 65 66 67 00 	movl   $0x676665,-0x4(%ebp)
+ 8048088:	0f b6 45 f8          	movzbl -0x8(%ebp),%eax
+ 804808c:	84 c0                	test   %al,%al
+ 804808e:	75 06                	jne    8048096 <main+0x22>
+ 8048090:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048095:	82                   	(bad)  
+ 8048096:	b8 00 00 00 00       	mov    $0x0,%eax
+ 804809b:	82                   	(bad)  
+ 804809c:	b8 00 00 00 00       	mov    $0x0,%eax
+ 80480a1:	c9                   	leave  
+ 80480a2:	c3                   	ret    

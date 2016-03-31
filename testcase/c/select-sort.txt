@@ -1,0 +1,78 @@
+
+select-sort：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <select_sort>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	83 ec 10             	sub    $0x10,%esp
+ 804809a:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 80480a1:	eb 6b                	jmp    804810e <select_sort+0x7a>
+ 80480a3:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480a6:	89 45 f4             	mov    %eax,-0xc(%ebp)
+ 80480a9:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480ac:	83 c0 01             	add    $0x1,%eax
+ 80480af:	89 45 f8             	mov    %eax,-0x8(%ebp)
+ 80480b2:	eb 22                	jmp    80480d6 <select_sort+0x42>
+ 80480b4:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 80480b7:	8b 14 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%edx
+ 80480be:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 80480c1:	8b 04 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%eax
+ 80480c8:	39 c2                	cmp    %eax,%edx
+ 80480ca:	7d 06                	jge    80480d2 <select_sort+0x3e>
+ 80480cc:	8b 45 f8             	mov    -0x8(%ebp),%eax
+ 80480cf:	89 45 f4             	mov    %eax,-0xc(%ebp)
+ 80480d2:	83 45 f8 01          	addl   $0x1,-0x8(%ebp)
+ 80480d6:	83 7d f8 63          	cmpl   $0x63,-0x8(%ebp)
+ 80480da:	7e d8                	jle    80480b4 <select_sort+0x20>
+ 80480dc:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480df:	8b 04 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%eax
+ 80480e6:	89 45 f0             	mov    %eax,-0x10(%ebp)
+ 80480e9:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 80480ec:	8b 14 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%edx
+ 80480f3:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480f6:	89 14 85 e0 91 04 08 	mov    %edx,0x80491e0(,%eax,4)
+ 80480fd:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 8048100:	8b 55 f0             	mov    -0x10(%ebp),%edx
+ 8048103:	89 14 85 e0 91 04 08 	mov    %edx,0x80491e0(,%eax,4)
+ 804810a:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 804810e:	83 7d fc 62          	cmpl   $0x62,-0x4(%ebp)
+ 8048112:	7e 8f                	jle    80480a3 <select_sort+0xf>
+ 8048114:	c9                   	leave  
+ 8048115:	c3                   	ret    
+
+08048116 <main>:
+ 8048116:	55                   	push   %ebp
+ 8048117:	89 e5                	mov    %esp,%ebp
+ 8048119:	83 ec 10             	sub    $0x10,%esp
+ 804811c:	e8 73 ff ff ff       	call   8048094 <select_sort>
+ 8048121:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 8048128:	eb 19                	jmp    8048143 <main+0x2d>
+ 804812a:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 804812d:	8b 04 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%eax
+ 8048134:	3b 45 fc             	cmp    -0x4(%ebp),%eax
+ 8048137:	74 06                	je     804813f <main+0x29>
+ 8048139:	b8 01 00 00 00       	mov    $0x1,%eax
+ 804813e:	82                   	(bad)  
+ 804813f:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 8048143:	83 7d fc 63          	cmpl   $0x63,-0x4(%ebp)
+ 8048147:	7e e1                	jle    804812a <main+0x14>
+ 8048149:	e8 46 ff ff ff       	call   8048094 <select_sort>
+ 804814e:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 8048155:	eb 19                	jmp    8048170 <main+0x5a>
+ 8048157:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 804815a:	8b 04 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%eax
+ 8048161:	3b 45 fc             	cmp    -0x4(%ebp),%eax
+ 8048164:	74 06                	je     804816c <main+0x56>
+ 8048166:	b8 01 00 00 00       	mov    $0x1,%eax
+ 804816b:	82                   	(bad)  
+ 804816c:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 8048170:	83 7d fc 63          	cmpl   $0x63,-0x4(%ebp)
+ 8048174:	7e e1                	jle    8048157 <main+0x41>
+ 8048176:	b8 00 00 00 00       	mov    $0x0,%eax
+ 804817b:	82                   	(bad)  
+ 804817c:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048181:	c9                   	leave  
+ 8048182:	c3                   	ret    

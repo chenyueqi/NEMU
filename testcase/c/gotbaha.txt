@@ -1,0 +1,82 @@
+
+gotbaha：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048074 <is_prime>:
+ 8048074:	55                   	push   %ebp
+ 8048075:	89 e5                	mov    %esp,%ebp
+ 8048077:	83 ec 10             	sub    $0x10,%esp
+ 804807a:	83 7d 08 01          	cmpl   $0x1,0x8(%ebp)
+ 804807e:	7f 07                	jg     8048087 <is_prime+0x13>
+ 8048080:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048085:	eb 2e                	jmp    80480b5 <is_prime+0x41>
+ 8048087:	c7 45 fc 02 00 00 00 	movl   $0x2,-0x4(%ebp)
+ 804808e:	eb 18                	jmp    80480a8 <is_prime+0x34>
+ 8048090:	8b 45 08             	mov    0x8(%ebp),%eax
+ 8048093:	99                   	cltd   
+ 8048094:	f7 7d fc             	idivl  -0x4(%ebp)
+ 8048097:	89 d0                	mov    %edx,%eax
+ 8048099:	85 c0                	test   %eax,%eax
+ 804809b:	75 07                	jne    80480a4 <is_prime+0x30>
+ 804809d:	b8 00 00 00 00       	mov    $0x0,%eax
+ 80480a2:	eb 11                	jmp    80480b5 <is_prime+0x41>
+ 80480a4:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 80480a8:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480ab:	3b 45 08             	cmp    0x8(%ebp),%eax
+ 80480ae:	7c e0                	jl     8048090 <is_prime+0x1c>
+ 80480b0:	b8 01 00 00 00       	mov    $0x1,%eax
+ 80480b5:	c9                   	leave  
+ 80480b6:	c3                   	ret    
+
+080480b7 <gotbaha>:
+ 80480b7:	55                   	push   %ebp
+ 80480b8:	89 e5                	mov    %esp,%ebp
+ 80480ba:	83 ec 14             	sub    $0x14,%esp
+ 80480bd:	c7 45 fc 02 00 00 00 	movl   $0x2,-0x4(%ebp)
+ 80480c4:	eb 30                	jmp    80480f6 <gotbaha+0x3f>
+ 80480c6:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480c9:	89 04 24             	mov    %eax,(%esp)
+ 80480cc:	e8 a3 ff ff ff       	call   8048074 <is_prime>
+ 80480d1:	85 c0                	test   %eax,%eax
+ 80480d3:	74 1d                	je     80480f2 <gotbaha+0x3b>
+ 80480d5:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480d8:	8b 55 08             	mov    0x8(%ebp),%edx
+ 80480db:	29 c2                	sub    %eax,%edx
+ 80480dd:	89 d0                	mov    %edx,%eax
+ 80480df:	89 04 24             	mov    %eax,(%esp)
+ 80480e2:	e8 8d ff ff ff       	call   8048074 <is_prime>
+ 80480e7:	85 c0                	test   %eax,%eax
+ 80480e9:	74 07                	je     80480f2 <gotbaha+0x3b>
+ 80480eb:	b8 01 00 00 00       	mov    $0x1,%eax
+ 80480f0:	eb 11                	jmp    8048103 <gotbaha+0x4c>
+ 80480f2:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 80480f6:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480f9:	3b 45 08             	cmp    0x8(%ebp),%eax
+ 80480fc:	7c c8                	jl     80480c6 <gotbaha+0xf>
+ 80480fe:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048103:	c9                   	leave  
+ 8048104:	c3                   	ret    
+
+08048105 <main>:
+ 8048105:	55                   	push   %ebp
+ 8048106:	89 e5                	mov    %esp,%ebp
+ 8048108:	83 ec 14             	sub    $0x14,%esp
+ 804810b:	c7 45 fc 04 00 00 00 	movl   $0x4,-0x4(%ebp)
+ 8048112:	eb 1a                	jmp    804812e <main+0x29>
+ 8048114:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 8048117:	89 04 24             	mov    %eax,(%esp)
+ 804811a:	e8 98 ff ff ff       	call   80480b7 <gotbaha>
+ 804811f:	83 f8 01             	cmp    $0x1,%eax
+ 8048122:	74 06                	je     804812a <main+0x25>
+ 8048124:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048129:	82                   	(bad)  
+ 804812a:	83 45 fc 02          	addl   $0x2,-0x4(%ebp)
+ 804812e:	81 7d fc e8 03 00 00 	cmpl   $0x3e8,-0x4(%ebp)
+ 8048135:	7e dd                	jle    8048114 <main+0xf>
+ 8048137:	b8 00 00 00 00       	mov    $0x0,%eax
+ 804813c:	82                   	(bad)  
+ 804813d:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048142:	c9                   	leave  
+ 8048143:	c3                   	ret    

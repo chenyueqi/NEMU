@@ -1,0 +1,75 @@
+
+bubble-sort：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <bubble_sort>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	83 ec 10             	sub    $0x10,%esp
+ 804809a:	c7 45 f8 00 00 00 00 	movl   $0x0,-0x8(%ebp)
+ 80480a1:	eb 6d                	jmp    8048110 <bubble_sort+0x7c>
+ 80480a3:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 80480aa:	eb 53                	jmp    80480ff <bubble_sort+0x6b>
+ 80480ac:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480af:	8b 14 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%edx
+ 80480b6:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480b9:	83 c0 01             	add    $0x1,%eax
+ 80480bc:	8b 04 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%eax
+ 80480c3:	39 c2                	cmp    %eax,%edx
+ 80480c5:	7e 34                	jle    80480fb <bubble_sort+0x67>
+ 80480c7:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480ca:	8b 04 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%eax
+ 80480d1:	89 45 f4             	mov    %eax,-0xc(%ebp)
+ 80480d4:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480d7:	83 c0 01             	add    $0x1,%eax
+ 80480da:	8b 14 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%edx
+ 80480e1:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480e4:	89 14 85 e0 91 04 08 	mov    %edx,0x80491e0(,%eax,4)
+ 80480eb:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480ee:	8d 50 01             	lea    0x1(%eax),%edx
+ 80480f1:	8b 45 f4             	mov    -0xc(%ebp),%eax
+ 80480f4:	89 04 95 e0 91 04 08 	mov    %eax,0x80491e0(,%edx,4)
+ 80480fb:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 80480ff:	b8 63 00 00 00       	mov    $0x63,%eax
+ 8048104:	2b 45 f8             	sub    -0x8(%ebp),%eax
+ 8048107:	3b 45 fc             	cmp    -0x4(%ebp),%eax
+ 804810a:	7f a0                	jg     80480ac <bubble_sort+0x18>
+ 804810c:	83 45 f8 01          	addl   $0x1,-0x8(%ebp)
+ 8048110:	83 7d f8 63          	cmpl   $0x63,-0x8(%ebp)
+ 8048114:	7e 8d                	jle    80480a3 <bubble_sort+0xf>
+ 8048116:	c9                   	leave  
+ 8048117:	c3                   	ret    
+
+08048118 <main>:
+ 8048118:	55                   	push   %ebp
+ 8048119:	89 e5                	mov    %esp,%ebp
+ 804811b:	83 ec 10             	sub    $0x10,%esp
+ 804811e:	e8 71 ff ff ff       	call   8048094 <bubble_sort>
+ 8048123:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 804812a:	eb 19                	jmp    8048145 <main+0x2d>
+ 804812c:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 804812f:	8b 04 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%eax
+ 8048136:	3b 45 fc             	cmp    -0x4(%ebp),%eax
+ 8048139:	74 06                	je     8048141 <main+0x29>
+ 804813b:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8048140:	82                   	(bad)  
+ 8048141:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 8048145:	83 7d fc 63          	cmpl   $0x63,-0x4(%ebp)
+ 8048149:	7e e1                	jle    804812c <main+0x14>
+ 804814b:	e8 44 ff ff ff       	call   8048094 <bubble_sort>
+ 8048150:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 8048157:	eb 19                	jmp    8048172 <main+0x5a>
+ 8048159:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 804815c:	8b 04 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%eax
+ 8048163:	3b 45 fc             	cmp    -0x4(%ebp),%eax
+ 8048166:	74 06                	je     804816e <main+0x56>
+ 8048168:	b8 01 00 00 00       	mov    $0x1,%eax
+ 804816d:	82                   	(bad)  
+ 804816e:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 8048172:	83 7d fc 63          	cmpl   $0x63,-0x4(%ebp)
+ 8048176:	7e e1                	jle    8048159 <main+0x41>
+ 8048178:	b8 00 00 00 00       	mov    $0x0,%eax
+ 804817d:	c9                   	leave  
+ 804817e:	c3                   	ret    

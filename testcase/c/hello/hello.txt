@@ -1,0 +1,17 @@
+
+hello：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048074 <main>:
+ 8048074:	55                   	push   %ebp
+ 8048075:	89 e5                	mov    %esp,%ebp
+ 8048077:	b8 04 00 00 00       	mov    $0x4,%eax
+ 804807c:	bb 01 00 00 00       	mov    $0x1,%ebx
+ 8048081:	b9 94 80 04 08       	mov    $0x8048094,%ecx
+ 8048086:	ba 0e 00 00 00       	mov    $0xe,%edx
+ 804808b:	cd 80                	int    $0x80
+ 804808d:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048092:	5d                   	pop    %ebp
+ 8048093:	c3                   	ret    

@@ -1,0 +1,35 @@
+
+fib：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <main>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	83 ec 10             	sub    $0x10,%esp
+ 804809a:	c7 45 fc 02 00 00 00 	movl   $0x2,-0x4(%ebp)
+ 80480a1:	eb 48                	jmp    80480eb <main+0x57>
+ 80480a3:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480a6:	83 e8 01             	sub    $0x1,%eax
+ 80480a9:	8b 14 85 40 91 04 08 	mov    0x8049140(,%eax,4),%edx
+ 80480b0:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480b3:	83 e8 02             	sub    $0x2,%eax
+ 80480b6:	8b 04 85 40 91 04 08 	mov    0x8049140(,%eax,4),%eax
+ 80480bd:	01 c2                	add    %eax,%edx
+ 80480bf:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480c2:	89 14 85 40 91 04 08 	mov    %edx,0x8049140(,%eax,4)
+ 80480c9:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480cc:	8b 14 85 40 91 04 08 	mov    0x8049140(,%eax,4),%edx
+ 80480d3:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480d6:	8b 04 85 e0 91 04 08 	mov    0x80491e0(,%eax,4),%eax
+ 80480dd:	39 c2                	cmp    %eax,%edx
+ 80480df:	74 06                	je     80480e7 <main+0x53>
+ 80480e1:	b8 01 00 00 00       	mov    $0x1,%eax
+ 80480e6:	82                   	(bad)  
+ 80480e7:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 80480eb:	83 7d fc 27          	cmpl   $0x27,-0x4(%ebp)
+ 80480ef:	7e b2                	jle    80480a3 <main+0xf>
+ 80480f1:	b8 00 00 00 00       	mov    $0x0,%eax
+ 80480f6:	c9                   	leave  
+ 80480f7:	c3                   	ret    

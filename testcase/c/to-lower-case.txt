@@ -1,0 +1,48 @@
+
+to-lower-case：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <to_lower_case>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	83 ec 04             	sub    $0x4,%esp
+ 804809a:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804809d:	88 45 fc             	mov    %al,-0x4(%ebp)
+ 80480a0:	80 7d fc 40          	cmpb   $0x40,-0x4(%ebp)
+ 80480a4:	7e 0f                	jle    80480b5 <to_lower_case+0x21>
+ 80480a6:	80 7d fc 5a          	cmpb   $0x5a,-0x4(%ebp)
+ 80480aa:	7f 09                	jg     80480b5 <to_lower_case+0x21>
+ 80480ac:	0f b6 45 fc          	movzbl -0x4(%ebp),%eax
+ 80480b0:	83 c0 20             	add    $0x20,%eax
+ 80480b3:	eb 04                	jmp    80480b9 <to_lower_case+0x25>
+ 80480b5:	0f b6 45 fc          	movzbl -0x4(%ebp),%eax
+ 80480b9:	c9                   	leave  
+ 80480ba:	c3                   	ret    
+
+080480bb <main>:
+ 80480bb:	55                   	push   %ebp
+ 80480bc:	89 e5                	mov    %esp,%ebp
+ 80480be:	83 ec 14             	sub    $0x14,%esp
+ 80480c1:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 80480c8:	eb 28                	jmp    80480f2 <main+0x37>
+ 80480ca:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 80480cd:	0f be c0             	movsbl %al,%eax
+ 80480d0:	89 04 24             	mov    %eax,(%esp)
+ 80480d3:	e8 bc ff ff ff       	call   8048094 <to_lower_case>
+ 80480d8:	8b 55 fc             	mov    -0x4(%ebp),%edx
+ 80480db:	81 c2 60 91 04 08    	add    $0x8049160,%edx
+ 80480e1:	0f b6 12             	movzbl (%edx),%edx
+ 80480e4:	38 d0                	cmp    %dl,%al
+ 80480e6:	74 06                	je     80480ee <main+0x33>
+ 80480e8:	b8 01 00 00 00       	mov    $0x1,%eax
+ 80480ed:	82                   	(bad)  
+ 80480ee:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 80480f2:	83 7d fc 7f          	cmpl   $0x7f,-0x4(%ebp)
+ 80480f6:	7e d2                	jle    80480ca <main+0xf>
+ 80480f8:	b8 00 00 00 00       	mov    $0x0,%eax
+ 80480fd:	82                   	(bad)  
+ 80480fe:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048103:	c9                   	leave  
+ 8048104:	c3                   	ret    

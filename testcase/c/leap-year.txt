@@ -1,0 +1,71 @@
+
+leap-year：     文件格式 elf32-i386
+
+
+Disassembly of section .text:
+
+08048094 <is_leap_year>:
+ 8048094:	55                   	push   %ebp
+ 8048095:	89 e5                	mov    %esp,%ebp
+ 8048097:	8b 45 08             	mov    0x8(%ebp),%eax
+ 804809a:	83 e0 03             	and    $0x3,%eax
+ 804809d:	85 c0                	test   %eax,%eax
+ 804809f:	75 23                	jne    80480c4 <is_leap_year+0x30>
+ 80480a1:	8b 4d 08             	mov    0x8(%ebp),%ecx
+ 80480a4:	ba 1f 85 eb 51       	mov    $0x51eb851f,%edx
+ 80480a9:	89 c8                	mov    %ecx,%eax
+ 80480ab:	f7 ea                	imul   %edx
+ 80480ad:	c1 fa 05             	sar    $0x5,%edx
+ 80480b0:	89 c8                	mov    %ecx,%eax
+ 80480b2:	c1 f8 1f             	sar    $0x1f,%eax
+ 80480b5:	29 c2                	sub    %eax,%edx
+ 80480b7:	89 d0                	mov    %edx,%eax
+ 80480b9:	6b c0 64             	imul   $0x64,%eax,%eax
+ 80480bc:	29 c1                	sub    %eax,%ecx
+ 80480be:	89 c8                	mov    %ecx,%eax
+ 80480c0:	85 c0                	test   %eax,%eax
+ 80480c2:	75 26                	jne    80480ea <is_leap_year+0x56>
+ 80480c4:	8b 4d 08             	mov    0x8(%ebp),%ecx
+ 80480c7:	ba 1f 85 eb 51       	mov    $0x51eb851f,%edx
+ 80480cc:	89 c8                	mov    %ecx,%eax
+ 80480ce:	f7 ea                	imul   %edx
+ 80480d0:	c1 fa 07             	sar    $0x7,%edx
+ 80480d3:	89 c8                	mov    %ecx,%eax
+ 80480d5:	c1 f8 1f             	sar    $0x1f,%eax
+ 80480d8:	29 c2                	sub    %eax,%edx
+ 80480da:	89 d0                	mov    %edx,%eax
+ 80480dc:	69 c0 90 01 00 00    	imul   $0x190,%eax,%eax
+ 80480e2:	29 c1                	sub    %eax,%ecx
+ 80480e4:	89 c8                	mov    %ecx,%eax
+ 80480e6:	85 c0                	test   %eax,%eax
+ 80480e8:	75 07                	jne    80480f1 <is_leap_year+0x5d>
+ 80480ea:	b8 01 00 00 00       	mov    $0x1,%eax
+ 80480ef:	eb 05                	jmp    80480f6 <is_leap_year+0x62>
+ 80480f1:	b8 00 00 00 00       	mov    $0x0,%eax
+ 80480f6:	5d                   	pop    %ebp
+ 80480f7:	c3                   	ret    
+
+080480f8 <main>:
+ 80480f8:	55                   	push   %ebp
+ 80480f9:	89 e5                	mov    %esp,%ebp
+ 80480fb:	83 ec 14             	sub    $0x14,%esp
+ 80480fe:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+ 8048105:	eb 28                	jmp    804812f <main+0x37>
+ 8048107:	8b 45 fc             	mov    -0x4(%ebp),%eax
+ 804810a:	05 62 07 00 00       	add    $0x762,%eax
+ 804810f:	89 04 24             	mov    %eax,(%esp)
+ 8048112:	e8 7d ff ff ff       	call   8048094 <is_leap_year>
+ 8048117:	8b 55 fc             	mov    -0x4(%ebp),%edx
+ 804811a:	8b 14 95 a0 91 04 08 	mov    0x80491a0(,%edx,4),%edx
+ 8048121:	39 d0                	cmp    %edx,%eax
+ 8048123:	74 06                	je     804812b <main+0x33>
+ 8048125:	b8 01 00 00 00       	mov    $0x1,%eax
+ 804812a:	82                   	(bad)  
+ 804812b:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+ 804812f:	83 7d fc 7c          	cmpl   $0x7c,-0x4(%ebp)
+ 8048133:	7e d2                	jle    8048107 <main+0xf>
+ 8048135:	b8 00 00 00 00       	mov    $0x0,%eax
+ 804813a:	82                   	(bad)  
+ 804813b:	b8 00 00 00 00       	mov    $0x0,%eax
+ 8048140:	c9                   	leave  
+ 8048141:	c3                   	ret    
